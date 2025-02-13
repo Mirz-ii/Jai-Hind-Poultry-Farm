@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: #fff;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+.back-video{
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+h1{
+    color: #121212;
+    margin-left: -70px;
+}
+
+.header{  
+    width: 100%;
+    height: 100vh;
+    background: url(img/vid1.mp4);
+    background-size: cover;
+    background-position: center;
+}
+
+.containor{
+    padding: 10px 10%;
+}
+
+nav{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    opacity: 0.6;
+}
+
+nav ul li{
+    color: #121212;
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    color: #121212;
+    text-decoration: none;
+    font-size: 20px;
+    position: relative;
+}
+
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: bisque;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+.header-text{
+    position: absolute;
+    left : 150px;
+    top : 150px;
+    font-size: 30px;
+}
+
+.containor1{
+    width: 50%;
+    margin-top: 10px;
+}
+
+.btn{
+    background-color: #fff;
+    margin: 10px 0 0 90px;
+    font-size: 1.3rem;
+    box-shadow: 0 0 20px bisque;
+    border-radius: 5px;
+    background-color: bisque;
+    text-align: center;
+    padding: 5px;
+}
+
+
+
+.btn1{
+    background-color: #fff;
+    margin:10px 0 0 90px; 
+    font-size: 1.3rem;
+    box-shadow: 0 0 20px bisque;
+    border-radius: 5px;
+    background-color: bisque;
+    text-align: center;
+    padding: 5px;
+}
+
+.parent-list{
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-gap: 20px;
+    margin-top: 50px;
+    opacity: 0.65;
+}
+
+.parent-list1 {
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-gap: 20px;
+    margin-top: 30px;
+    opacity: 0.65;
+}
+
+.parent-list div{
+    background-color: white;
+    padding: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    border: 1px solid black;
+    border-radius: 30px;
+    transition: background 0.5s,transform 0.5s;
+}
+
+.parent-list1 div{
+    /* height: 290px; */
+    background-color: white;
+    padding: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    border: 1px solid black;
+    border-radius: 30px;
+    transition: background 0.5s,transform 0.5s;
+}
+
+.parent-list div i{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.parent-list1 div i{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+
+.parent-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.parent-list1 div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.parent-list div p{
+    font-size: 15px;
+}
+
+.parent-list1 div p{
+    font-size: 15px;
+}
+
+.parent-list div:hover{
+    background: bisque;
+    transform: translateY(-10px);
+}
+
+.parent-list1 div:hover{
+    background: bisque;
+    transform: translateY(-10px);
+}
+
+h2{
+    margin-bottom: -30px;
+}
+
+
+/* Farm starts  */
+
+
+.types{
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-gap: 20px;
+    margin-top: 50px;
+    opacity: 0.65;
+}
+
+
+.types div {
+    background-color: white;
+    padding: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: background 0.5s,transform 0.5s;
+    width: 100%;
+}
+
+.tyoes div option{
+    text-decoration: none;
+    
+}
+.types div:hover{
+    background: bisque;
+    transform: translateY(-10px);
+}
+
+#name{
+    margin-top: 40px;
+    margin-left: 150px;
+    font-family: sans-serif;
+}
