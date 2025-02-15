@@ -1,0 +1,95 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Record</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="containor">
+            <video autoplay loop muted class="back-video">
+                <source src="img/vid1.mp4">
+            </video>
+            <nav>
+                <h1>Jai Hind Poultry Farm</h1>
+                <ul id="menu">
+                    <li><a href="#">FARM</a></li>
+                    <li><a href="#">CUSTOMER</a></li>
+                    <li><a href="#">PRICING</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>    
+    </div>        
+    <div class="searchbar">
+        <input type="text" placeholder="Enter Name"><button>Search</button><button>Add</button>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Customer Registration</h2>
+        <form action="register" method="post">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <textarea name="address" placeholder="Address" required></textarea>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+
+    <div class="container">
+        <h2>Customer Login</h2>
+        <form action="login" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+
+    <div class="container">
+        <h2>Customer Report</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>johndoe</td>
+                <td>john@example.com</td>
+                <td>1234567890</td>
+                <td>123 Main St, Springfield</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane Smith</td>
+                <td>janesmith</td>
+                <td>jane@example.com</td>
+                <td>0987654321</td>
+                <td>456 Elm St, Springfield</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
