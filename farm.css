@@ -1,0 +1,110 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+.back-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Farm Title */
+.farm-title {
+    font-size: 3em;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Accordion Container */
+.accordion-container {
+    display: flex; /* Flexbox layout */
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 100%; /* Full width */
+    flex-wrap: nowrap; /* No wrapping, all in one row */
+    overflow-x: auto; /* Scroll if screen is too small */
+}
+
+/* Accordion Item */
+.accordion-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    width: 30%; /* Each item takes up 30% of the row */
+    min-width: 250px; /* Minimum width to keep items readable */
+}
+
+/* Accordion Header */
+.accordion-header {
+    display: block;
+    padding: 15px 20px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+}
+
+.accordion-header::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    font-size: 1.5em;
+    transition: transform 0.3s;
+}
+
+/* Accordion Content */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f9f9f9;
+    padding: 0 20px;
+}
+
+.accordion-body {
+    padding: 15px 0;
+    line-height: 1.8em;
+}
+
+/* Open and Close Logic */
+.accordion-item:target .accordion-content {
+    max-height: 200px;
+    padding-bottom: 15px;
+}
+
+.accordion-item:target .accordion-header::after {
+    transform: rotate(45deg);
+}
+
+.accordion-header:hover {
+    background: #45a049;
+}

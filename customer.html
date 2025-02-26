@@ -29,67 +29,192 @@
 </body>
 </html> -->
 
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management - Jai Hind Poultry</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Customer Registration</h2>
+        <form action="register" method="post" class="form-container">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Full Name" required>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+            
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" placeholder="Address" required></textarea>
+            
+            <input type="submit" value="Register" class="form-btn">
+        </form>
+    </div>
+
+   
+    <div class="container">
+        <h2>Customer Login</h2>
+        <form action="login" method="post" class="form-container">
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="username" placeholder="Username" required>
+            
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" placeholder="Password" required>
+            
+            <input type="submit" value="Login" class="form-btn">
+        </form>
+    </div>
+
+   
+    <div class="container">
+        <h2>Customer Report</h2>
+        <table class="report-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Stock</th>
+                    <th>Paid</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>123</td>
+                    <td>1223</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>12234</td>
+                    <td>123</td>
+                    <td>098765</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html> -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Registration</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Customer Management - Jai Hind Poultry</title>
+    <link rel="stylesheet" href="customer.css">
 </head>
 <body>
+    <!-- Back Button -->
+    
+    <button class="back-btn" onclick="window.location.href = '../index.html'">Go Back</button>
+
+    <!-- Customer Registration Section -->
     <div class="container">
         <h2>Customer Registration</h2>
-        <form action="register" method="post">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-            <textarea name="address" placeholder="Address" required></textarea>
-            <input type="submit" value="Register">
+        <form action="register" method="post" class="form-container">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+            
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" placeholder="Address" required></textarea>
+            
+            <input type="submit" value="Register" class="form-btn">
         </form>
     </div>
 
-
+    <!-- Customer Login Section
     <div class="container">
         <h2>Customer Login</h2>
-        <form action="login" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
+        <form action="login" method="post" class="form-container">
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="username" placeholder="Username" required>
+            
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" placeholder="Password" required>
+            
+            <input type="submit" value="Login" class="form-btn">
         </form>
-    </div>
+    </div> -->
 
-
+    <!-- Customer Report Section -->
     <div class="container">
         <h2>Customer Report</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Address</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>johndoe</td>
-                <td>john@example.com</td>
-                <td>1234567890</td>
-                <td>123 Main St, Springfield</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Jane Smith</td>
-                <td>janesmith</td>
-                <td>jane@example.com</td>
-                <td>0987654321</td>
-                <td>456 Elm St, Springfield</td>
-            </tr>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+            <input type="text" id="search-bar" placeholder="Search by name..." onkeyup="searchTable()">
+        </div>
+
+        <table class="report-table" id="report-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Stock</th>
+                    <th>Paid</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>123</td>
+                    <td>1223</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>12234</td>
+                    <td>123</td>
+                    <td>098765</td>
+                </tr>
+            </tbody>
         </table>
     </div>
+
+    <script>
+        // Search Functionality
+        function searchTable() {
+            const input = document.getElementById("search-bar");
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById("report-table");
+            const tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    const textValue = td.textContent || td.innerText;
+                    tr[i].style.display = textValue.toLowerCase().includes(filter) ? "" : "none";
+                }
+            }
+        }  
+</script>
 </body>
 </html>

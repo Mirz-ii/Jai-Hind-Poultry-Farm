@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
     <script src="https://kit.fontawesome.com/d0264be07e.js" crossorigin="anonymous"></script>
     <title>Jai Hind Poultry</title>
 </head>
@@ -52,7 +52,7 @@
                         <i class="fa-solid fa-drumstick-bite"></i>
                         <h2>Credit</h2>
                         <p>Parent farming is the foundation of any poultry farming operation, </p>
-                        <button class="btn" onclick="openNewTab3()"> more...</i></button>
+                        <button class="btn" onclick="openNewTab()"> more...</i></button>
                     </div>
     
             </div>
@@ -61,26 +61,22 @@
     </div>
   
     <script>
-        function openNewTab(){
-            window.open("farm.html");
+        function openNewTab() {
+            window.location.href = "farm.html"; // Opens in the same tab
+        }
+    
+        function openNewTab1() {
+            window.location.href = "customer.html";
+        }
+    
+        function openNewTab2() {
+            window.location.href = "customer.html";
+        }
+    
+        function openNewTab3() {
+            window.location.href = "customer.html";
         }
     </script>
-    <script>
-                function openNewTab1(){
-            window.open("customer.html");
-        }
-    </script>
-    <script>
-            function openNewTab2(){
-        window.open("customer.html");
-    }
-    </script>
-    <script>
-            function openNewTab3(){
-        window.open("customer.html");
-    }
-    </script>
-
-
+    
 </body>
 </html>                                                             

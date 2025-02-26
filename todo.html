@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Page</title>
+    <link rel="stylesheet" href="todo.css"> <!-- Linking CSS -->
+</head>
+<body>
+
+    <h2>Customer Report</h2>
+
+    <!-- Add New Customer Form -->
+    <div class="add-form">
+        <h3>Add New Customer</h3>
+        <input type="text" id="customerName" placeholder="Customer Name">
+        <input type="date" id="date">
+        <input type="number" id="udhari" placeholder="Udhari">
+        <input type="number" id="nag" placeholder="Nag">
+        <input type="text" id="weight" placeholder="Weight">
+        <input type="text" id="rate" placeholder="Rate">
+        <input type="text" id="saleAmount" placeholder="Sale Amount">
+        <input type="text" id="closingBalance" placeholder="Closing Balance">
+        <button onclick="addCustomer()">Add Customer</button>
+    </div>
+
+    <!-- Table -->
+    <table id="reportTable">
+        <thead>
+            <tr>
+                <th>SR.n</th>
+                <th>Customer Name</th>
+                <th>Date</th>
+                <th>Udhari</th>
+                <th>Nag</th>
+                <th>Weight</th>
+                <th>Rate</th>
+                <th>Sale Amount</th>
+                <th>Closing Balance</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>101</td>
+                <td contenteditable="true">Chicken Supply</td>
+                <td contenteditable="true">2025-02-18</td>
+                <td contenteditable="true">5000</td>
+                <td contenteditable="true">20</td>
+                <td contenteditable="true">200kg</td>
+                <td contenteditable="true">₹150/kg</td>
+                <td contenteditable="true">₹30,000</td>
+                <td contenteditable="true">₹25,000</td>
+                <td>
+                    <button onclick="deleteRow(this)">Delete</button>
+                    <button onclick="editRow(this)">Edit</button>
+                    <button onclick="saveRow(this)">Save</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="save-btn" onclick="saveChanges()">Save All Changes</button>
+
+    <script src="script.js"></script> <!-- Linking JavaScript -->
+</body>
+</html>
