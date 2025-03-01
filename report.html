@@ -1,143 +1,39 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Page</title>
-    <link rel="stylesheet" href="report.css"> 
-    <script src="https://kit.fontawesome.com/d0264be07e.js" crossorigin="anonymous"></script>
-</head>
-<body>
-
-    <div class="container">
-        <h1>Report Page</h1>
-        
-        <div class="search-box">
-            <input type="text" id="search" onkeyup="filterTable()" placeholder="Search Reports...">
-        </div>
-
-        <table id="reportTable">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>101</td>
-                <td>Chicken Supply</td>
-                <td>2025-02-18</td>
-                <td>Completed</td>
-            </tr>
-            <tr>
-                <td>102</td>
-                <td>Egg Production</td>
-                <td>2025-02-17</td>
-                <td>Pending</td>
-            </tr>
-            <tr>
-                <td>103</td>
-                <td>Customer Order</td>
-                <td>2025-02-16</td>
-                <td>Completed</td>
-            </tr>
-        </table>
-
-        <button class="back-btn" onclick="window.location.href = '../index.html'">Go Back</button>
-    </div>
-
-    <script src="script.js"></script>  Linking the external JavaScript file -->
-
-<!-- </body> -->
-<!-- </html>  -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Page</title>
-    <link rel="stylesheet" href="report.css"> <!-- Linking the CSS file -->
+    <title>Daily Rate</title>
+    <link rel="stylesheet" href="report.css">
 </head>
 <body>
-    <h2>Report Page</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>SR.n</th>
-                <th>Customer Name</th>
-                <th>Date</th>
-                <th>Udhari</th>
-                <th>Nag</th>
-                <th>Weight</th>
-                <th>Rate</th>
-                <th>Sale Amount</th>
-                <th>Closing Balance</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>101</td>
-                <td>Chicken Supply</td>
-                <td>2025-02-18</td>
-                <td>Completed</td>
-                <!-- <td>
-                    <button class="edit-btn" onclick="editRow(this)">Edit</button>
-                    <button class="save-btn" onclick="saveRow(this)">Save</button>
-                </td> -->
-            </tr>
-            <tr>
-                <td>102</td>
-                <td>Egg Production</td>
-                <td>2025-02-17</td>
-                <td>Pending</td>
-                <!-- <td>
-                    <button class="edit-btn" onclick="editRow(this)">Edit</button>
-                    <button class="save-btn" onclick="saveRow(this)">Save</button>
-                </td> -->
-            </tr>
-        </tbody>
-    </table>
+    
+    <button class="back-btn" onclick="window.location.href = '../index.html'">Go Back</button>
 
-    <script>
-        function editRow(button) {
-            let row = button.parentElement.parentElement; 
-            let cells = row.querySelectorAll("td:not(:last-child)");
+    <div class="container">
+        <h1>Daily Rate</h1>
+        <p>Current Chicken Rate: <span id="currentRate">Loading...</span> ₹/kg</p>
 
-            if (row.classList.contains("editing")) return; 
+        <div class="update-section">
+            <input type="number" id="newRate" placeholder="Enter new rate">
+            <button onclick="updateRate()">Update Rate</button>
+        </div>
 
-            row.classList.add("editing"); 
+        <h2>Updated Report</h2>
+        <table id="reportTable">
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Updated Rate (₹/kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Report rows will be inserted dynamically -->
+            </tbody>
+        </table>
+    </div>
 
-            cells.forEach((cell, index) => {
-                if (index > 0) { 
-                    let value = cell.innerText;
-                    cell.innerHTML = `<input type='text' value='${value}'>`;
-                }
-            });
+    <script src="script.js"></script>
 
-            row.querySelector(".edit-btn").style.display = "none";
-            row.querySelector(".save-btn").style.display = "inline";
-        }
-
-        function saveRow(button) {
-            let row = button.parentElement.parentElement;
-            let inputs = row.querySelectorAll("input");
-
-            if (confirm("Are you sure you want to save changes?")) {
-                inputs.forEach(input => {
-                    input.parentElement.innerHTML = input.value;
-                });
-
-                row.classList.remove("editing");
-
-                row.querySelector(".edit-btn").style.display = "inline";
-                row.querySelector(".save-btn").style.display = "none";
-
-                alert("Changes saved successfully! (Implement backend update here)");
-            }
-        }
-    </script>
 </body>
 </html>

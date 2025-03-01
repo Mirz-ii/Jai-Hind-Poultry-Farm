@@ -5,55 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FARM</title>
     <link rel="stylesheet" href="farm.css">
+    <script>
+        function toggleAccordion(id) {
+            var content = document.getElementById(id);
+            content.classList.toggle("active");
+        }
+    </script>
+    <style>
+        .accordion-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        .accordion-content.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-        <!-- Back Button -->
-   
-        <button class="back-btn" onclick="window.location.href = '../index.html'">Go Back</button>
-
-    <!-- <video autoplay loop muted class="back-video">
-        <source src="img/vid1.mp4">
-    </video> -->
+    <button class="back-btn" onclick="window.location.href = '../index.html'">Go Back</button>
     <div class="farm-title">FARM</div>
 
     <div class="accordion-container">
-        <div id="broiler" class="accordion-item">
-            <a href="#broiler" class="accordion-header">Broiler</a>
-            <div class="accordion-content">
-                <div class="accordion-body">
-                    <!-- Content for Broiler section -->
-                    Stock <br>
-                    Nag <br>
-                    kg <br>
-                    Available 
-
-                </div>
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion('broiler-content')">Broiler</button>
+            <div id="broiler-content" class="accordion-content">
+                Stock: <input type="number" placeholder="Enter stock"> <br>
+                Nag: <input type="number" placeholder="Enter nag"> <br>
+                kg: <input type="number" placeholder="Enter kg"> <br>
+                Available: <input type="text" placeholder="Availability status"> 
             </div>
         </div>
 
-        <div id="leghorn" class="accordion-item">
-            <a href="#leghorn" class="accordion-header">Leghorn</a>
-            <div class="accordion-content">
-                <div class="accordion-body">
-                    <!-- Content for Leghorn section -->
-                    Stock <br>
-                    Nag <br>
-                    kg <br>
-                    Available 
-                </div>
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion('leghorn-content')">Leghorn</button>
+            <div id="leghorn-content" class="accordion-content">
+                Stock: <input type="number" placeholder="Enter stock"> <br>
+                Nag: <input type="number" placeholder="Enter nag"> <br>
+                kg: <input type="number" placeholder="Enter kg"> <br>
+                Available: <input type="text" placeholder="Availability status"> 
             </div>
         </div>
 
-        <div id="parrot" class="accordion-item">
-            <a href="#parrot" class="accordion-header">Parrot</a>
-            <div class="accordion-content">
-                <div class="accordion-body">
-                    <!-- Content for Parrot section -->
-                    Stock <br>
-                    Nag <br>
-                    kg <br>
-                    Available 
-                </div>
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion('parrot-content')">Parrot</button>
+            <div id="parrot-content" class="accordion-content">
+                Stock: <input type="number" placeholder="Enter stock"> <br>
+                Nag: <input type="number" placeholder="Enter nag"> <br>
+                kg: <input type="number" placeholder="Enter kg"> <br>
+                Available: <input type="text" placeholder="Availability status"> 
             </div>
         </div>
     </div>

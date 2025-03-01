@@ -30,60 +30,138 @@ function filterTable() {
 
 
 
-// Function to delete a row
-function deleteRow(button) {
-    if (confirm("Are you sure you want to delete this row?")) {
-        let row = button.parentElement.parentElement;
-        row.remove();
-    }
-}
+// Open and close modal
+const modal = document.getElementById("customerModal");
+const addCustomerBtn = document.getElementById("addCustomerBtn");
+const closeBtn = document.getElementsByClassName("close")[0];
 
-// Function to add a new customer
-function addCustomer() {
-    let table = document.getElementById("reportTable").getElementsByTagName('tbody')[0];
+addCustomerBtn.onclick = function () {
+    modal.style.display = "block";
+};
+
+closeBtn.onclick = function () {
+    modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
+
+// Save customer details
+function saveCustomer() {
+    let table = document.getElementById("customerTable").getElementsByTagName("tbody")[0];
+
     let newRow = table.insertRow();
+    newRow.innerHTML = `
+        <td>${table.rows.length}</td>
+        <td>${document.getElementById("customerName").value}</td>
+        <td>${new Date().toISOString().split('T')[0]}</td>
+        <td>${document.getElementById("udhar").value}</td>
+        <td>${document.getElementById("nag").value}</td>
+        <td>${document.getElementById("weight").value}</td>
+        <td>${document.getElementById("rate").value}</td>
+        <td>${document.getElementById("saleAmount").value}</td>
+        <td>${document.getElementById("closingBalance").value}</td>
+        <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+    `;
 
-    let srNo = table.rows.length; // Auto-increment SR.n
-    let customerName = document.getElementById("customerName").value;
-    let date = document.getElementById("date").value;
-    let udhari = document.getElementById("udhari").value;
-    let nag = document.getElementById("nag").value;
-    let weight = document.getElementById("weight").value;
-    let rate = document.getElementById("rate").value;
-    let saleAmount = document.getElementById("saleAmount").value;
-    let closingBalance = document.getElementById("closingBalance").value;
+    modal.style.display = "none";
+    document.getElementById("customerName").value = "";
+    document.getElementById("udhar").value = "";
+    document.getElementById("nag").value = "";
+    document.getElementById("weight").value = "";
+    document.getElementById("rate").value = "";
+    document.getElementById("saleAmount").value = "";
+    document.getElementById("closingBalance").value = "";
+}
 
-    if (!customerName || !date) {
-        alert("Customer Name and Date are required!");
-        return;
+// Delete customer row
+function deleteRow(btn) {
+    let row = btn.parentElement.parentElement;
+    row.parentElement.removeChild(row);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    populateDropdown();
+});
+
+// Function to populate the dropdown with customer names
+function populateDropdown() {
+    let customers = Array.from(document.querySelectorAll("table tbody tr td:nth-child(2)")) // Select Customer Name Column
+                         .map(td => td.textContent.trim());
+    
+    let uniqueCustomers = [...new Set(customers)]; // Remove duplicates
+    let dataList = document.getElementById("customerList");
+    
+    dataList.innerHTML = ""; // Clear previous options
+    uniqueCustomers.forEach(name => {
+        let option = document.createElement("option");
+        option.value = name;
+        dataList.appendChild(option);
+    });
+}
+
+// Function to filter the table based on search input
+function filterTable() {
+    let searchText = document.getElementById("searchInput").value.toLowerCase();
+    let rows = document.querySelectorAll("table tbody tr");
+
+    rows.forEach(row => {
+        let customerName = row.cells[1].textContent.toLowerCase(); // Customer Name Column
+        row.style.display = customerName.includes(searchText) ? "" : "none";
+    });
+}
+
+
+// Function to load the saved rate and report from local storage
+function loadRate() {
+    let savedRate = localStorage.getItem("chickenRate");
+    let savedReport = JSON.parse(localStorage.getItem("rateReport")) || [];
+
+    if (savedRate) {
+        document.getElementById("currentRate").textContent = savedRate;
+    } else {
+        document.getElementById("currentRate").textContent = "Not Set";
     }
 
-    let data = [srNo, customerName, date, udhari, nag, weight, rate, saleAmount, closingBalance];
-
-    // Insert data into the table
-    data.forEach((text, index) => {
-        let cell = newRow.insertCell(index);
-        cell.textContent = text;
-        if (index !== 0) cell.contentEditable = "true"; // Make all columns (except SR.n) editable
+    // Load report history
+    let reportTable = document.getElementById("reportTable").getElementsByTagName("tbody")[0];
+    reportTable.innerHTML = ""; // Clear table before adding data
+    savedReport.forEach(entry => {
+        let row = reportTable.insertRow();
+        row.insertCell(0).textContent = entry.dateTime;
+        row.insertCell(1).textContent = `₹${entry.rate}/kg`;
     });
-
-    // Add Delete button
-    let actionCell = newRow.insertCell(data.length);
-    actionCell.innerHTML = `<button onclick="deleteRow(this)">Delete</button>`;
-
-    let actionCell2 = newRow.insertCell(data.length);
-    actionCell2.innerHTML = `<button onclick="editRow(this)">Edit</button>`;
-
-    let actionCell3 = newRow.insertCell(data.length);
-    actionCell3.innerHTML = `<button onclick="saveRow(this)">Save</button>`;
-
-
-
-    // Clear input fields
-    document.querySelectorAll(".add-form input").forEach(input => input.value = "");
 }
 
-// Function to save changes
-function saveChanges() {
-    alert("Changes saved successfully! (Implement backend save functionality here)");
+// Function to update the rate
+function updateRate() {
+    let newRate = document.getElementById("newRate").value;
+    if (newRate) {
+        // Save the new rate
+        localStorage.setItem("chickenRate", newRate);
+        document.getElementById("currentRate").textContent = newRate;
+
+        // Add to report history
+        let reportTable = document.getElementById("reportTable").getElementsByTagName("tbody")[0];
+        let row = reportTable.insertRow();
+        let now = new Date().toLocaleString();
+        row.insertCell(0).textContent = now;
+        row.insertCell(1).textContent = `₹${newRate}/kg`;
+
+        // Save report to local storage
+        let savedReport = JSON.parse(localStorage.getItem("rateReport")) || [];
+        savedReport.unshift({ dateTime: now, rate: newRate }); // Add new entry at the top
+        localStorage.setItem("rateReport", JSON.stringify(savedReport));
+
+        alert("Rate updated successfully!");
+        document.getElementById("newRate").value = ""; // Clear input field
+    } else {
+        alert("Please enter a valid rate.");
+    }
 }
+
+// Load data when page loads
+window.onload = loadRate;
