@@ -1,15 +1,3 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//     const birdTypeSelect = document.getElementById("bird-type")
-//     const birdStatusDiv = document.getElementById("bird-status")
-  
-//     birdTypeSelect.addEventListener("change", function () {
-//       if (this.value !== "") {
-//         birdStatusDiv.classList.remove("hidden")
-//       } else {
-//         birdStatusDiv.classList.add("hidden")
-//       }
-//     })
-//   })
 function goBack() {
     window.location.href = "index.html"; // Redirects to the home page
 }
@@ -165,3 +153,17 @@ function updateRate() {
 
 // Load data when page loads
 window.onload = loadRate;
+
+        // JavaScript function to dynamically update income values
+        function updateIncome() {
+            let totalIncome = prompt("Enter Total Income:", "$50,000");
+            let monthlyIncome = prompt("Enter Monthly Income:", "$4,000");
+            let weeklyIncome = prompt("Enter Weekly Income:", "$1,000");
+            let dailyIncome = prompt("Enter Daily Income:", "$142");
+
+            // Updating the text content of the respective income boxes
+            document.getElementById('total-income').textContent = totalIncome;
+            document.getElementById('monthly-income').textContent = monthlyIncome;
+            document.getElementById('weekly-income').textContent = weeklyIncome;
+            document.getElementById('daily-income').textContent = dailyIncome;
+        }

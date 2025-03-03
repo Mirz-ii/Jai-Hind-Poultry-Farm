@@ -10,7 +10,8 @@ body {
 /* Back Button */
 .back-btn {
     margin: 10px;
-    left: 10px;
+    margin-right: 900px;
+    margin-left: -500px;
     padding: 8px 16px;
     background: #007bff;
     color: white;

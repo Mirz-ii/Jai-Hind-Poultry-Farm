@@ -73,10 +73,28 @@ body {
 
 /* Input Fields */
 input {
-    width: 100%;
+    width: 97%;
     padding: 8px;
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+}
+
+.submit {
+    margin: 5px;
+    margin-left: 88%;
+    background-color: #0056b3;
+    color: white;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 3.5rem;
+    transition: transform 0.3s ease, background-color 0.5s ease;
+}
+
+.submit:hover {
+    background-color: #e04d2a;
+    transform: scale(1.2); /* Yeh line button ko bada karegi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10); /* Yeh shadow add karega jisse pop effect aur zyada dikhai dega */
 }
